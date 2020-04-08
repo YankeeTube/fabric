@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 
 install_golang()
@@ -10,6 +10,7 @@ install_golang()
 		sudo apt update && sudo apt install golang-go -y
 	else
 		echo -e "\n\nGolang already installed"
+  fi
 }
 
 install_nvm()
@@ -91,10 +92,10 @@ sudo apt update && sudo apt install -y \
 	git
 
 
-echo "Docker & Docker Compose Install ..."
-wget https://raw.githubusercontent.com/YankeeTube/learn-prisma2/master/ddc-install.sh && chmod +x ddc-install.sh && ./ddc-install.sh
-
-rm -f ddc-install.sh nvm-install.sh
+install_golang
+install_nvm
+install_docker
+install_compose
 
 echo -e "\e[32m docker version: " $(docker --version)
 echo -e "\e[32m docker compose version: " $(docker-compose --version)
